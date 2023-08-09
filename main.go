@@ -7,8 +7,7 @@ import (
 
 func main() {
 
-	var n1 float64
-	var n2 float64
+	var n1, n2 float64
 	var operator string
 
 	fmt.Print("Premier nombre: ")
@@ -30,9 +29,13 @@ func main() {
 	case "*":
 		result = n1 * n2
 	case "/":
+		if n1 == 0 {
+			fmt.Print("Divison de 0 impossible !")
+			os.Exit(1)
+		}
 		result = n1 / n2
 	default:
-		fmt.Print("Votre opérateur est invalide !")
+		fmt.Print("Nombre ou opérateur invalide !")
 		os.Exit(1)
 	}
 
